@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="main-content">
+        <div class="header">
+            <h1>Quản Lý Phí & Thanh Toán</h1>
+            <div class="user-info">
+                <div>
+                    <div style="font-weight: 600;">Admin</div>
+                    <div style="font-size: 13px; color: #718096;">Quản lý hệ thống</div>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Tổng Quan Thanh Toán</h2>
+            <div class="stats-grid" style="margin-bottom: 20px;">
+                <div class="stat-card">
+                    <h3>ĐÃ THANH TOÁN</h3>
+                    <div class="value">186</div>
+                    <div class="trend">75% căn hộ</div>
+                </div>
+                <div class="stat-card">
+                    <h3>CHƯA THANH TOÁN</h3>
+                    <div class="value">62</div>
+                    <div class="trend down">25% căn hộ</div>
+                </div>
+                <div class="stat-card">
+                    <h3>TỔNG THU THÁNG NÀY</h3>
+                    <div class="value">2.8 tỷ</div>
+                    <div class="trend">↑ 15%</div>
+                </div>
+                <div class="stat-card">
+                    <h3>NỢ TỒNG</h3>
+                    <div class="value">280 tr</div>
+                    <div class="trend down">↓ 10%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Danh Sách Thanh Toán</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm theo căn hộ, chủ hộ..." id="feeSearch">
+                <select style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <option>Tất cả trạng thái</option>
+                    <option>Đã thanh toán</option>
+                    <option>Chưa thanh toán</option>
+                    <option>Quá hạn</option>
+                </select>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Căn Hộ</th>
+                    <th>Chủ Hộ</th>
+                    <th>Kỳ</th>
+                    <th>Tổng Phí</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>A12-05</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>11/2025</td>
+                    <td>5.275.000đ</td>
+                    <td><span class="badge badge-success">Đã thanh toán</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>B08-12</td>
+                    <td>Trần Thị B</td>
+                    <td>11/2025</td>
+                    <td>4.580.000đ</td>
+                    <td><span class="badge badge-danger">Chưa thanh toán</span></td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">💬 Nhắc nhở</button>
+                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>C05-03</td>
+                    <td>Lê Văn C</td>
+                    <td>11/2025</td>
+                    <td>6.125.000đ</td>
+                    <td><span class="badge badge-success">Đã thanh toán</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>D10-08</td>
+                    <td>Phạm Thị D</td>
+                    <td>11/2025</td>
+                    <td>4.320.000đ</td>
+                    <td><span class="badge badge-danger">Chưa thanh toán</span></td>
+                    <td>
+                        <button class="btn btn-warning btn-sm">💬 Nhắc nhở</button>
+                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>A05-15</td>
+                    <td>Hoàng Văn E</td>
+                    <td>11/2025</td>
+                    <td>7.250.000đ</td>
+                    <td><span class="badge badge-success">Đã thanh toán</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

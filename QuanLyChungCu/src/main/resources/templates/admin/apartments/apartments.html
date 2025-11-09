@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="main-content">
+        <div class="header">
+            <h1>Quản Lý Căn Hộ</h1>
+            <div class="user-info">
+                <div>
+                    <div style="font-weight: 600;">Admin</div>
+                    <div style="font-size: 13px; color: #718096;">Quản lý hệ thống</div>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Danh Sách Căn Hộ</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm căn hộ..." id="apartmentSearch">
+                <button class="btn btn-primary" onclick="openModal('addApartment')">➕ Thêm Căn Hộ</button>
+            </div>
+            <table id="apartmentsTable">
+                <thead>
+                <tr>
+                    <th>Mã CH</th>
+                    <th>Số Căn</th>
+                    <th>Diện Tích</th>
+                    <th>Số Phòng</th>
+                    <th>Chủ Sở Hữu</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CH001</td>
+                    <td>A12-05</td>
+                    <td>85m²</td>
+                    <td>3PN</td>
+                    <td>Nguyễn Văn A</td>
+                    <td><span class="badge badge-success">Đang ở</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CH002</td>
+                    <td>B08-12</td>
+                    <td>72m²</td>
+                    <td>2PN</td>
+                    <td>Trần Thị B</td>
+                    <td><span class="badge badge-warning">Cho thuê</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CH003</td>
+                    <td>C05-03</td>
+                    <td>95m²</td>
+                    <td>3PN</td>
+                    <td>Lê Văn C</td>
+                    <td><span class="badge badge-success">Đang ở</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CH004</td>
+                    <td>D10-08</td>
+                    <td>68m²</td>
+                    <td>2PN</td>
+                    <td>Phạm Thị D</td>
+                    <td><span class="badge badge-success">Đang ở</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CH005</td>
+                    <td>A05-15</td>
+                    <td>110m²</td>
+                    <td>4PN</td>
+                    <td>Hoàng Văn E</td>
+                    <td><span class="badge badge-warning">Cho thuê</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

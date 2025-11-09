@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+      layout:decorate="~{home/layout}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -16,12 +16,12 @@
     <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
         <div class="container-fluid page-header-inner py-5">
             <div class="container text-center pb-5">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Dịch vụ</h1>
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Phản hồi</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center text-uppercase">
                         <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                         <li class="breadcrumb-item"><a href="#">Trang</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Dịch vụ</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">PHẢN HỒI</li>
                     </ol>
                 </nav>
             </div>
@@ -76,86 +76,6 @@
     <!-- Booking End -->
 
 
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title text-center text-primary text-uppercase">Các dịch vụ của chúng tôi</h6>
-                <h1 class="mb-5">Khám phá <span class="text-primary text-uppercase">Các dịch vụ</span></h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item rounded" href="">
-                        <div class="service-icon bg-transparent border rounded p-1">
-                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                <i class="fa fa-hotel fa-2x text-primary"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-3">Phòng và tiện ích</h5>
-                        <p class="text-body mb-0">Rất nhiều loại phòng và dịch vụ phù hợp với mọi gia đình</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <a class="service-item rounded" href="">
-                        <div class="service-icon bg-transparent border rounded p-1">
-                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                <i class="fa fa-utensils fa-2x text-primary"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-3">Nhà hàng</h5>
-                        <p class="text-body mb-0">Có nhiều đối tác nhà hàng uy tín được chúng tôi kiểm định kỹ lưỡng.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a class="service-item rounded" href="">
-                        <div class="service-icon bg-transparent border rounded p-1">
-                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                <i class="fa fa-spa fa-2x text-primary"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-3">Spa và công viên</h5>
-                        <p class="text-body mb-0">Hệ thống cây xanh phủ khắp chung cư kèm dịch vụ spa - điểm đến yêu thích của mọi người sau những buỗi tập luyện.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <a class="service-item rounded" href="">
-                        <div class="service-icon bg-transparent border rounded p-1">
-                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                <i class="fa fa-swimmer fa-2x text-primary"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-3">Thể thao và giải trí</h5>
-                        <p class="text-body mb-0">Có khu vực phòng gaming, sân vận động mini tọa lạc trong nội khu chung cư.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <a class="service-item rounded" href="">
-                        <div class="service-icon bg-transparent border rounded p-1">
-                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                <i class="fa fa-glass-cheers fa-2x text-primary"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-3">Sự kiện</h5>
-                        <p class="text-body mb-0">Được tổ chức thường niên nhằm mang đến những bầu không khí thoải mái, tạo nên một khu đô thị hiện đại và văn minh.</p>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                    <a class="service-item rounded" href="">
-                        <div class="service-icon bg-transparent border rounded p-1">
-                            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                <i class="fa fa-dumbbell fa-2x text-primary"></i>
-                            </div>
-                        </div>
-                        <h5 class="mb-3">Gym và Yoga</h5>
-                        <p class="text-body mb-0">Phòng gym và yoga được mở 24/7 với các khóa đào tạo cho người mới bắt đầu.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-
     <!-- Testimonial Start -->
     <div class="container-xxl testimonial my-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s">
         <div class="container">
@@ -197,7 +117,25 @@
         </div>
     </div>
     <!-- Testimonial End -->
-</div>
 
+
+    <!-- Newsletter Start -->
+    <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 border rounded p-1">
+                <div class="border rounded text-center p-1">
+                    <div class="bg-white rounded text-center p-5">
+                        <h4 class="mb-4">Đăng ký đặt lịch <span class="text-primary text-uppercase">Tư vấn</span></h4>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Nhập email của bạn">
+                            <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Nhập</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter Start -->
+</div>
 </body>
 </html>

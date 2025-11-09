@@ -13,37 +13,42 @@ public class HomeController {
 
     @GetMapping("/about")
     public String about(){
-        return "about";
+        return "home/about";
     }
 
     @GetMapping("/booking")
     public String booking(){
-        return "booking";
+        return "home/booking";
     }
 
     @GetMapping("/contact")
     public String contact(){
-        return "contact";
+        return "home/contact";
     }
 
     @GetMapping("/team")
     public String ourTeam(){
-        return "our_team";
+        return "home/our_team";
     }
 
     @GetMapping("/rooms")
     public String rooms(){
-        return "rooms";
+        return "home/rooms";
     }
 
     @GetMapping("/service")
     public String service(){
-        return "service";
+        return "home/service";
     }
 
     @GetMapping("/testimonial")
     public String testimonial(){
-        return "testimonial";
+        return "home/testimonial";
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
     }
 
 }

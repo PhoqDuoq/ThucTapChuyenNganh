@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="main-content">
+        <div class="header">
+            <h1>Quản Lý Dịch Vụ</h1>
+            <div class="user-info">
+                <div>
+                    <div style="font-weight: 600;">Admin</div>
+                    <div style="font-size: 13px; color: #718096;">Quản lý hệ thống</div>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Danh Sách Dịch Vụ</h2>
+            <button class="btn btn-primary" onclick="openModal('addService')" style="margin-bottom: 20px;">➕ Thêm Dịch Vụ</button>
+            <table>
+                <thead>
+                <tr>
+                    <th>Tên Dịch Vụ</th>
+                    <th>Mô Tả</th>
+                    <th>Giá</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Phí quản lý</td>
+                    <td>Phí quản lý chung cư hàng tháng</td>
+                    <td>15.000đ/m²</td>
+                    <td><span class="badge badge-success">Hoạt động</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bãi xe ô tô</td>
+                    <td>Phí gửi xe ô tô hàng tháng</td>
+                    <td>1.200.000đ/tháng</td>
+                    <td><span class="badge badge-success">Hoạt động</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bãi xe máy</td>
+                    <td>Phí gửi xe máy hàng tháng</td>
+                    <td>70.000đ/tháng</td>
+                    <td><span class="badge badge-success">Hoạt động</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bảo vệ</td>
+                    <td>Dịch vụ bảo vệ 24/7</td>
+                    <td>50.000đ/căn/tháng</td>
+                    <td><span class="badge badge-success">Hoạt động</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vệ sinh</td>
+                    <td>Dịch vụ vệ sinh khu vực chung</td>
+                    <td>30.000đ/căn/tháng</td>
+                    <td><span class="badge badge-success">Hoạt động</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
+                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

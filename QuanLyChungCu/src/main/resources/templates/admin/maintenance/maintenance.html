@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="main-content">
+        <div class="header">
+            <h1>Quản Lý Bảo Trì & Sửa Chữa</h1>
+            <div class="user-info">
+                <div>
+                    <div style="font-weight: 600;">Admin</div>
+                    <div style="font-size: 13px; color: #718096;">Quản lý hệ thống</div>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Danh Sách Yêu Cầu Bảo Trì</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm yêu cầu..." id="maintenanceSearch">
+                <select style="padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <option>Tất cả trạng thái</option>
+                    <option>Chờ xử lý</option>
+                    <option>Đang xử lý</option>
+                    <option>Hoàn thành</option>
+                </select>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Mã YC</th>
+                    <th>Căn Hộ</th>
+                    <th>Nội Dung</th>
+                    <th>Ngày Yêu Cầu</th>
+                    <th>Ưu Tiên</th>
+                    <th>Trạng Thái</th>
+                    <th>Thao Tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>YC001</td>
+                    <td>B08-12</td>
+                    <td>Sửa hệ thống điện</td>
+                    <td>08/11/2025</td>
+                    <td><span class="badge badge-danger">Cao</span></td>
+                    <td><span class="badge badge-warning">Đang xử lý</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✅ Hoàn thành</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>YC002</td>
+                    <td>C05-08</td>
+                    <td>Thay ống nước</td>
+                    <td>07/11/2025</td>
+                    <td><span class="badge badge-warning">Trung bình</span></td>
+                    <td><span class="badge badge-success">Hoàn thành</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">📄 Xem</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>YC003</td>
+                    <td>A05-15</td>
+                    <td>Sửa khóa cửa</td>
+                    <td>06/11/2025</td>
+                    <td><span class="badge badge-success">Thấp</span></td>
+                    <td><span class="badge badge-warning">Đang xử lý</span></td>
+                    <td>
+                        <button class="btn btn-success btn-sm">✅ Hoàn thành</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>YC004</td>
+                    <td>D10-08</td>
+                    <td>Sửa máy lạnh</td>
+                    <td>05/11/2025</td>
+                    <td><span class="badge badge-warning">Trung bình</span></td>
+                    <td><span class="badge badge-success">Hoàn thành</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">📄 Xem</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>YC005</td>
+                    <td>A12-05</td>
+                    <td>Thông tắc cống</td>
+                    <td>04/11/2025</td>
+                    <td><span class="badge badge-danger">Cao</span></td>
+                    <td><span class="badge badge-success">Hoàn thành</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">📄 Xem</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Thống Kê Bảo Trì</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>TỔNG YÊU CẦU</h3>
+                    <div class="value">125</div>
+                    <div class="trend">Trong tháng này</div>
+                </div>
+                <div class="stat-card">
+                    <h3>ĐANG XỬ LÝ</h3>
+                    <div class="value">12</div>
+                    <div class="trend down">Cần giải quyết</div>
+                </div>
+                <div class="stat-card">
+                    <h3>ĐÃ HOÀN THÀNH</h3>
+                    <div class="value">113</div>
+                    <div class="trend">90% tỷ lệ hoàn thành</div>
+                </div>
+                <div class="stat-card">
+                    <h3>THỜI GIAN TB</h3>
+                    <div class="value">2.5 ngày</div>
+                    <div class="trend">↓ Giảm 0.5 ngày</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

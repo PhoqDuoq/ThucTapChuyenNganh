@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Quản Lý Chung Cư Him Lam</h1>
+            <div class="user-info">
+                <div>
+                    <div style="font-weight: 600;">Admin</div>
+                    <div style="font-size: 13px; color: #718096;">Quản lý hệ thống</div>
+                </div>
+                <div class="avatar">A</div>
+            </div>
+        </div>
+
+        <div class="section active" id="dashboard">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>TỔNG CĂN HỘ</h3>
+                    <div class="value">248</div>
+                    <div class="trend">↑ 12 căn mới</div>
+                </div>
+                <div class="stat-card">
+                    <h3>CƯ DÂN</h3>
+                    <div class="value">856</div>
+                    <div class="trend">↑ 23 người</div>
+                </div>
+                <div class="stat-card">
+                    <h3>DOANH THU THÁNG</h3>
+                    <div class="value">2.8 tỷ</div>
+                    <div class="trend">↑ 15%</div>
+                </div>
+                <div class="stat-card">
+                    <h3>YÊU CẦU BẢO TRÌ</h3>
+                    <div class="value">12</div>
+                    <div class="trend down">↓ 5 yêu cầu</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Hoạt Động Gần Đây</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Thời Gian</th>
+                        <th>Hoạt Động</th>
+                        <th>Chi Tiết</th>
+                        <th>Trạng Thái</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>10:30 AM</td>
+                        <td>Thanh toán phí quản lý</td>
+                        <td>Căn A12-05 - 5.000.000đ</td>
+                        <td><span class="badge badge-success">Hoàn thành</span></td>
+                    </tr>
+                    <tr>
+                        <td>09:15 AM</td>
+                        <td>Yêu cầu bảo trì</td>
+                        <td>Căn B08-12 - Sửa điện</td>
+                        <td><span class="badge badge-warning">Đang xử lý</span></td>
+                    </tr>
+                    <tr>
+                        <td>08:45 AM</td>
+                        <td>Đăng ký cư dân mới</td>
+                        <td>Nguyễn Văn A - Căn C05-03</td>
+                        <td><span class="badge badge-success">Hoàn thành</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

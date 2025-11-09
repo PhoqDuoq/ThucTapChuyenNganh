@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Him Lam Admin - Quản Lý Chung Cư</title>
+    <link rel="stylesheet" th:href="@{/css/styleAdmin.css}">
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="logo">🏢 Him Lam Admin</div>
+        <a th:href="@{/admin/}" class="menu-item active">
+            📊 Dashboard
+        </a>
+        <a th:href="@{/admin/residents}" class="menu-item">
+            👥 Cư Dân
+        </a>
+        <a th:href="@{/admin/apartments}" class="menu-item">
+            🏠 Căn Hộ
+        </a>
+        <a th:href="@{/admin/services}" class="menu-item">
+            🛠️ Dịch Vụ
+        </a>
+        <a th:href="@{/admin/fees}" class="menu-item">
+            💰 Phí & Thanh Toán
+        </a>
+        <a th:href="@{/admin/maintenance}" class="menu-item">
+            🔧 Bảo Trì
+        </a>
+        <a th:href="@{/admin/announcements}" class="menu-item">
+            📢 Thông Báo
+        </a>
+    </div>
+
+    <div layout:fragment="content">
+
+    </div>
+</div>
+
+<script th:src="@{/js/adminScript.js}"></script>
+</body>
+</html>
