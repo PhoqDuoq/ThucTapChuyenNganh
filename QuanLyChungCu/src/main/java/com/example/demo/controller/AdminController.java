@@ -10,6 +10,11 @@ public class AdminController {
         return "admin";
     }
 
+    @GetMapping("/login")
+    public String login(){
+        return "admin/login";
+    }
+
     @GetMapping("/admin/announcements")
     public String announcements(){
         return "admin/announcements/announcements";

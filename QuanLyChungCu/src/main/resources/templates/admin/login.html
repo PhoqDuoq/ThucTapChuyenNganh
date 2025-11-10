@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Him Lam Admin - Đăng Nhập</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+<body>
+<div class="login-container">
+    <div class="login-box">
+        <div class="login-header">
+            <div class="login-logo">🏢</div>
+            <h1 class="login-title">Him Lam Admin</h1>
+            <p class="login-subtitle">Hệ thống quản lý chung cư</p>
+        </div>
+
+        <div th:if="${param.error}" class="error-message show">
+            Tên đăng nhập hoặc mật khẩu không đúng!
+        </div>
+
+        <div th:if="${param.logout}" class="logout-message show">
+            Bạn đã đăng xuất thành công.
+        </div>
+
+
+        <form class="login-form" th:action="@{/login}" method="POST">
+            <div class="form-group">
+                <label for="username">Tên đăng nhập</label>
+                <input
+                        type="text"
+                        id="username"
+                        name="username" placeholder="Nhập tên đăng nhập"
+                        required
+                        autocomplete="username"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <div class="password-wrapper">
+                    <input
+                            type="password"
+                            id="password"
+                            name="password" placeholder="Nhập mật khẩu"
+                            required
+                            autocomplete="current-password"
+                    >
+                    <span class="password-toggle" onclick="togglePassword()">👁️</span>
+                </div>
+            </div>
+
+            <button type="submit" class="login-btn">Đăng Nhập</button>
+        </form>
+
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>

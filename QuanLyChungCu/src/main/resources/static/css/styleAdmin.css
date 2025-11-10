@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #09d7d4 100%);
     min-height: 100vh;
 }
 
@@ -30,7 +30,7 @@ body {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid #4a5568;
-    color: #667eea;
+    color: #ffffff;
 }
 
 .menu-item {
@@ -86,7 +86,7 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #667eea, #464647);
     display: flex;
     align-items: center;
     justify-content: center;

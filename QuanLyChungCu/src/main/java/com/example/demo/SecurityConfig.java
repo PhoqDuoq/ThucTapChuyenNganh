@@ -15,20 +15,23 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
 
-                        // ---- ĐÂY LÀ PHẦN QUAN TRỌNG ----
-                        // Cho phép tất cả mọi người truy cập vào các thư mục này
-                        .requestMatchers("/css/**", "/js/**", "/img/**", "/vendor/**").permitAll()
 
-                        // Cấu hình các trang admin: Yêu cầu phải đăng nhập
+                        .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
+
+
+                        .requestMatchers("/login").permitAll()
+
+
                         .requestMatchers("/admin/**").authenticated()
 
-                        // Tất cả các yêu cầu khác
-                        .anyRequest().permitAll() // Hoặc .authenticated() tùy bạn
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
-                        // .loginPage("/login")  // Bạn có thể tạo trang đăng nhập tùy chỉnh sau
-                        // .permitAll()
-                        .defaultSuccessUrl("/admin/dashboard", true) // Chuyển đến dashboard sau khi login
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .defaultSuccessUrl("/admin/", true)
+                        .failureUrl("/login?error=true")
+                        .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
@@ -37,4 +40,6 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+
 }
