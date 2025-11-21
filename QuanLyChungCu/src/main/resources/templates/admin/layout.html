@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi" xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,12 +32,24 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
         <a th:href="@{/admin/announcements}" class="menu-item">
             📢 Thông Báo
         </a>
+
+        <!-- Logout Button -->
+        <div class="sidebar-footer">
+            <form id="logoutForm" th:action="@{/logout}" method="post">
+
+            </form>
+
+            <a href="#" class="menu-item logout-btn" onclick="confirmLogout(event)">
+                🚪 Đăng Xuất
+            </a>
+        </div>
     </div>
 
     <div layout:fragment="content">
 
     </div>
 </div>
+
 
 <script th:src="@{/js/adminScript.js}"></script>
 </body>

@@ -1,4 +1,5 @@
-package com.example.demo;
+/*
+* package com.example.demo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,22 +9,15 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfigNotLoadingCSS {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-
-
                         .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
-
-
                         .requestMatchers("/login").permitAll()
-
-
                         .requestMatchers("/admin/**").authenticated()
-
                         .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
@@ -42,4 +36,4 @@ public class SecurityConfig {
     }
 
 
-}
+}*/

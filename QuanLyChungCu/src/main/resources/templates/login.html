@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<div class="overlay"></div>
+<div class="container">
+    <div class="login-box">
+        <h2>Đăng Nhập</h2>
+        <div th:if="${param.error}" class="alert alert-light" role="alert">
+            Tên đăng nhập hoặc mật khẩu không đúng!
+        </div>
+        <form id="loginForm" th:action="@{/authenticateTheUser}" method="post">
+            <div class="input-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Đăng Nhập</button>
+
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+</div>
+<script th:src="@{/js/loginScript.js}"></script>
+</body>
+</html>

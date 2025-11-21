@@ -164,3 +164,15 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Him Lam Admin System Loaded Successfully!');
     console.log('Version 1.0.0');
 });
+
+
+function confirmLogout(event) {
+    event.preventDefault(); // Ngăn hành vi mặc định của thẻ <a> (href="#")
+
+    const confirmed = confirm("Bạn có chắc muốn đăng xuất không?");
+
+    if (confirmed) {
+        // Lấy form đăng xuất bằng ID và submit nó
+        document.getElementById('logoutForm').submit();
+    }
+}
