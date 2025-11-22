@@ -15,17 +15,22 @@ public class SecurityConfig {
         UserDetails phong = User.builder()
                 .username("phong")
                 .password("{noop}123")
-                .roles("EMPLOYEE")
+                .roles("EMPLOYEE","ADMIN")
                 .build();
+
         return new InMemoryUserDetailsManager(phong); // tạo thông tin người dùng tài khoản
+
     }
+
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/css/**", "/js/**", "/img/**", "/lib/**").permitAll()
+                        .requestMatchers("/css/**","/vendor/**", "/js/**","/scss/**", "/img/**", "/lib/**").permitAll()
                         .requestMatchers("/login").permitAll()
-                        .requestMatchers("/admin/**").authenticated()
+                        .requestMatchers("/logout").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/user/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().permitAll())
 
                 .formLogin(form -> form
