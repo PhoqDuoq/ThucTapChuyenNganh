@@ -4,8 +4,7 @@
       layout:decorate="~{admin/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Quản Lý Bảo Trì</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -36,7 +35,7 @@
                 <thead>
                 <tr>
                     <th>Mã YC</th>
-                    <th>Căn Hộ</th>
+                    <th>Căn Hộ (ID)</th>
                     <th>Nội Dung</th>
                     <th>Ngày Yêu Cầu</th>
                     <th>Ưu Tiên</th>
@@ -45,59 +44,48 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>YC001</td>
-                    <td>B08-12</td>
-                    <td>Sửa hệ thống điện</td>
-                    <td>08/11/2025</td>
-                    <td><span class="badge badge-danger">Cao</span></td>
-                    <td><span class="badge badge-warning">Đang xử lý</span></td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✅ Hoàn thành</button>
-                    </td>
+
+                <tr th:if="${maintenanceList.empty}">
+                    <td colspan="7" style="text-align: center; padding: 20px;">Chưa có yêu cầu bảo trì nào.</td>
                 </tr>
-                <tr>
-                    <td>YC002</td>
-                    <td>C05-08</td>
-                    <td>Thay ống nước</td>
-                    <td>07/11/2025</td>
-                    <td><span class="badge badge-warning">Trung bình</span></td>
-                    <td><span class="badge badge-success">Hoàn thành</span></td>
+
+                <tr th:each="item : ${maintenanceList}">
+                    <td th:text="${item.maYeuCau}">YC001</td>
+
+                    <td th:text="'Căn ID: ' + ${item.idCanHo}">B08-12</td>
+
+                    <td th:text="${item.noiDung}">Sửa hệ thống điện</td>
+
+                    <td th:text="${#temporals.format(item.ngayYeuCau, 'dd/MM/yyyy')}">08/11/2025</td>
+
                     <td>
-                        <button class="btn btn-primary btn-sm">📄 Xem</button>
+                        <span class="badge"
+                              th:classappend="${item.mucDoUuTien == 'Cao' ? 'badge-danger' : (item.mucDoUuTien == 'Trung bình' ? 'badge-warning' : 'badge-success')}"
+                              th:text="${item.mucDoUuTien}">
+                              Cao
+                        </span>
                     </td>
-                </tr>
-                <tr>
-                    <td>YC003</td>
-                    <td>A05-15</td>
-                    <td>Sửa khóa cửa</td>
-                    <td>06/11/2025</td>
-                    <td><span class="badge badge-success">Thấp</span></td>
-                    <td><span class="badge badge-warning">Đang xử lý</span></td>
+
                     <td>
-                        <button class="btn btn-success btn-sm">✅ Hoàn thành</button>
+                        <span class="badge"
+                              th:classappend="${item.trangThai == 'Hoàn thành' ? 'badge-success' : 'badge-warning'}"
+                              th:text="${item.trangThai}">
+                              Đang xử lý
+                        </span>
                     </td>
-                </tr>
-                <tr>
-                    <td>YC004</td>
-                    <td>D10-08</td>
-                    <td>Sửa máy lạnh</td>
-                    <td>05/11/2025</td>
-                    <td><span class="badge badge-warning">Trung bình</span></td>
-                    <td><span class="badge badge-success">Hoàn thành</span></td>
+
                     <td>
-                        <button class="btn btn-primary btn-sm">📄 Xem</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>YC005</td>
-                    <td>A12-05</td>
-                    <td>Thông tắc cống</td>
-                    <td>04/11/2025</td>
-                    <td><span class="badge badge-danger">Cao</span></td>
-                    <td><span class="badge badge-success">Hoàn thành</span></td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">📄 Xem</button>
+                        <button class="btn btn-success btn-sm"
+                                th:if="${item.trangThai != 'Hoàn thành'}"
+                                th:onclick="'completeMaintenance(' + ${item.id} + ')'">
+                            ✅ Hoàn thành
+                        </button>
+
+                        <button class="btn btn-primary btn-sm"
+                                th:if="${item.trangThai == 'Hoàn thành'}"
+                                th:onclick="'viewMaintenanceDetail(' + ${item.id} + ')'">
+                            📄 Xem
+                        </button>
                     </td>
                 </tr>
                 </tbody>
@@ -130,5 +118,6 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

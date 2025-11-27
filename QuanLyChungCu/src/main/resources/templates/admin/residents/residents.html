@@ -4,8 +4,7 @@
       layout:decorate="~{admin/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Quản Lý Cư Dân</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -27,76 +26,51 @@
                 <input type="text" placeholder="Tìm kiếm cư dân..." id="residentSearch">
                 <button class="btn btn-primary" onclick="openModal('addResident')">➕ Thêm Cư Dân</button>
             </div>
+
             <table id="residentsTable">
                 <thead>
                 <tr>
                     <th>Mã CD</th>
                     <th>Họ Tên</th>
-                    <th>Căn Hộ</th>
+                    <th>Căn Hộ (ID)</th>
                     <th>Số Điện Thoại</th>
                     <th>Email</th>
                     <th>Thao Tác</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>CD001</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>A12-05</td>
-                    <td>0901234567</td>
-                    <td>nguyenvana@email.com</td>
+
+                <tr th:if="${residents.empty}">
+                    <td colspan="6" style="text-align: center; padding: 20px;">Chưa có dữ liệu cư dân.</td>
+                </tr>
+
+                <tr th:each="item : ${residents}">
+                    <td th:text="${item.maCuDan}">CD001</td>
+                    <td th:text="${item.hoTen}">Nguyễn Văn A</td>
+
+                    <td th:text="${item.idCanHo != null ? 'Căn ID: ' + item.idCanHo : 'Chưa gán'}">
+                        A12-05
+                    </td>
+
+                    <td th:text="${item.soDienThoai}">0901234567</td>
+                    <td th:text="${item.email}">nguyenvana@email.com</td>
+
                     <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                        <button class="btn btn-success btn-sm"
+                                th:onclick="'editResident(' + ${item.id} + ')'">
+                            ✏️ Sửa
+                        </button>
+                        <button class="btn btn-danger btn-sm"
+                                th:onclick="'deleteResident(' + ${item.id} + ')'">
+                            🗑️ Xóa
+                        </button>
                     </td>
                 </tr>
-                <tr>
-                    <td>CD002</td>
-                    <td>Trần Thị B</td>
-                    <td>B08-12</td>
-                    <td>0912345678</td>
-                    <td>tranthib@email.com</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>CD003</td>
-                    <td>Lê Văn C</td>
-                    <td>C05-03</td>
-                    <td>0923456789</td>
-                    <td>levanc@email.com</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>CD004</td>
-                    <td>Phạm Thị D</td>
-                    <td>D10-08</td>
-                    <td>0934567890</td>
-                    <td>phamthid@email.com</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>CD005</td>
-                    <td>Hoàng Văn E</td>
-                    <td>A05-15</td>
-                    <td>0945678901</td>
-                    <td>hoangvane@email.com</td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 </body>
 </html>

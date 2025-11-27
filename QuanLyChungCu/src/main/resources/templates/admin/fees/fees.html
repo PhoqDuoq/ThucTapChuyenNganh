@@ -4,8 +4,7 @@
       layout:decorate="~{admin/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Quản Lý Phí & Thanh Toán</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -58,10 +57,11 @@
                     <option>Quá hạn</option>
                 </select>
             </div>
+
             <table>
                 <thead>
                 <tr>
-                    <th>Căn Hộ</th>
+                    <th>Căn Hộ (ID)</th>
                     <th>Chủ Hộ</th>
                     <th>Kỳ</th>
                     <th>Tổng Phí</th>
@@ -70,61 +70,48 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>A12-05</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>11/2025</td>
-                    <td>5.275.000đ</td>
-                    <td><span class="badge badge-success">Đã thanh toán</span></td>
+
+                <tr th:if="${fees.empty}">
+                    <td colspan="6" style="text-align: center; padding: 20px;">Không có dữ liệu phí nào.</td>
+                </tr>
+
+                <tr th:each="item : ${fees}">
+                    <td th:text=" 'CH' + ${item.idCanHo}">A12-05</td>
+
+                    <td>---</td> <!-- Update sau -->
+
+                    <td th:text="${item.kyThanhToan}">11/2025</td>
+
+                    <td th:text="${#numbers.formatDecimal(item.tongPhi, 0, 'POINT', 0, 'COMMA')} + 'đ'">
+                        5.275.000đ
+                    </td>
+
                     <td>
-                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
+                        <span class="badge"
+                              th:classappend="${item.trangThai == 'Đã thanh toán' ? 'badge-success' : 'badge-danger'}"
+                              th:text="${item.trangThai}">
+                              Đã thanh toán
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-warning btn-sm"
+                                th:if="${item.trangThai != 'Đã thanh toán'}"
+                                th:onclick="'remindFee(' + ${item.id} + ')'">
+                            💬 Nhắc nhở
+                        </button>
+
+                        <button class="btn btn-primary btn-sm"
+                                th:onclick="'viewFeeDetail(' + ${item.id} + ')'">
+                            📄 Chi tiết
+                        </button>
                     </td>
                 </tr>
-                <tr>
-                    <td>B08-12</td>
-                    <td>Trần Thị B</td>
-                    <td>11/2025</td>
-                    <td>4.580.000đ</td>
-                    <td><span class="badge badge-danger">Chưa thanh toán</span></td>
-                    <td>
-                        <button class="btn btn-warning btn-sm">💬 Nhắc nhở</button>
-                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>C05-03</td>
-                    <td>Lê Văn C</td>
-                    <td>11/2025</td>
-                    <td>6.125.000đ</td>
-                    <td><span class="badge badge-success">Đã thanh toán</span></td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>D10-08</td>
-                    <td>Phạm Thị D</td>
-                    <td>11/2025</td>
-                    <td>4.320.000đ</td>
-                    <td><span class="badge badge-danger">Chưa thanh toán</span></td>
-                    <td>
-                        <button class="btn btn-warning btn-sm">💬 Nhắc nhở</button>
-                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>A05-15</td>
-                    <td>Hoàng Văn E</td>
-                    <td>11/2025</td>
-                    <td>7.250.000đ</td>
-                    <td><span class="badge badge-success">Đã thanh toán</span></td>
-                    <td>
-                        <button class="btn btn-primary btn-sm">📄 Chi tiết</button>
-                    </td>
-                </tr>
+
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 </body>
 </html>

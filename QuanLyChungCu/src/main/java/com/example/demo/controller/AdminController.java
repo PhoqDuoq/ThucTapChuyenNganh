@@ -1,43 +1,51 @@
 package com.example.demo.controller;
 
+import com.example.demo.dao.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
-    @GetMapping("/admin/")
-    public String admin(){
-        return "admin";
+
+
+    private final ApartmentsDAO apartmentsDAO;
+    private final ResidentsDAO residentsDAO;
+    private final MaintenanceDAO maintenanceDAO;
+    private final FeesDAO feesDAO;
+
+
+    public AdminController(ApartmentsDAO apartmentsDAO,
+                           ResidentsDAO residentsDAO,
+                           MaintenanceDAO maintenanceDAO,
+                           FeesDAO feesDAO) {
+        this.apartmentsDAO = apartmentsDAO;
+        this.residentsDAO = residentsDAO;
+        this.maintenanceDAO = maintenanceDAO;
+        this.feesDAO = feesDAO;
     }
 
+    @GetMapping("/")
+    public String dashboard(Model model) {
 
-    @GetMapping("/admin/announcements")
-    public String announcements(){
-        return "admin/announcements/announcements";
-    }
+        int totalApartments = apartmentsDAO.findAll().size();
 
-    @GetMapping("/admin/apartments")
-    public String apartments(){
-        return "admin/apartments/apartments";
-    }
+        int totalResidents = residentsDAO.findAll().size();
 
-    @GetMapping("/admin/fees")
-    public String fees(){
-        return "admin/fees/fees";
-    }
+        int totalMaintenance = maintenanceDAO.findAll().size();
 
-    @GetMapping("/admin/maintenance")
-    public String maintenance(){
-        return "admin/maintenance/maintenance";
-    }
+        long unpaidInvoices = feesDAO.findAll().stream()
+                .filter(f -> !"Đã thanh toán".equals(f.getTrangThai()))
+                .count();
 
-    @GetMapping("/admin/residents")
-    public String residents(){
-        return "admin/residents/residents";
-    }
+        // gửi sang file HTML
+        model.addAttribute("totalApartments", totalApartments);
+        model.addAttribute("totalResidents", totalResidents);
+        model.addAttribute("totalMaintenance", totalMaintenance);
+        model.addAttribute("unpaidInvoices", unpaidInvoices);
 
-    @GetMapping("/admin/services")
-    public String services(){
-        return "admin/services/services";
+        return "/admin";
     }
 }

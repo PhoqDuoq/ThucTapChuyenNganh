@@ -4,8 +4,7 @@
       layout:decorate="~{admin/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
+    <title>Quản Lý Dịch Vụ</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -24,6 +23,7 @@
         <div class="card">
             <h2>Danh Sách Dịch Vụ</h2>
             <button class="btn btn-primary" onclick="openModal('addService')" style="margin-bottom: 20px;">➕ Thêm Dịch Vụ</button>
+
             <table>
                 <thead>
                 <tr>
@@ -35,59 +35,43 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Phí quản lý</td>
-                    <td>Phí quản lý chung cư hàng tháng</td>
-                    <td>15.000đ/m²</td>
-                    <td><span class="badge badge-success">Hoạt động</span></td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
-                    </td>
+
+                <tr th:if="${services.empty}">
+                    <td colspan="5" style="text-align: center; padding: 20px;">Chưa có dịch vụ nào.</td>
                 </tr>
-                <tr>
-                    <td>Bãi xe ô tô</td>
-                    <td>Phí gửi xe ô tô hàng tháng</td>
-                    <td>1.200.000đ/tháng</td>
-                    <td><span class="badge badge-success">Hoạt động</span></td>
+
+                <tr th:each="item : ${services}">
+                    <td th:text="${item.tenDichVu}">Phí quản lý</td>
+                    <td th:text="${item.moTa}">Mô tả dịch vụ...</td>
+
                     <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                        <span th:text="${#numbers.formatDecimal(item.giaTien, 0, 'POINT', 0, 'COMMA')}">15.000</span>đ/
+                        <span th:text="${item.donViTinh}">m²</span>
                     </td>
-                </tr>
-                <tr>
-                    <td>Bãi xe máy</td>
-                    <td>Phí gửi xe máy hàng tháng</td>
-                    <td>70.000đ/tháng</td>
-                    <td><span class="badge badge-success">Hoạt động</span></td>
+
                     <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                        <span class="badge"
+                              th:classappend="${item.trangThai == 'Hoạt động' ? 'badge-success' : 'badge-danger'}"
+                              th:text="${item.trangThai}">
+                              Hoạt động
+                        </span>
                     </td>
-                </tr>
-                <tr>
-                    <td>Bảo vệ</td>
-                    <td>Dịch vụ bảo vệ 24/7</td>
-                    <td>50.000đ/căn/tháng</td>
-                    <td><span class="badge badge-success">Hoạt động</span></td>
+
                     <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Vệ sinh</td>
-                    <td>Dịch vụ vệ sinh khu vực chung</td>
-                    <td>30.000đ/căn/tháng</td>
-                    <td><span class="badge badge-success">Hoạt động</span></td>
-                    <td>
-                        <button class="btn btn-success btn-sm">✏️ Sửa</button>
-                        <button class="btn btn-danger btn-sm">🗑️ Xóa</button>
+                        <button class="btn btn-success btn-sm"
+                                th:onclick="'editService(' + ${item.id} + ')'">
+                            ✏️ Sửa
+                        </button>
+                        <button class="btn btn-danger btn-sm"
+                                th:onclick="'deleteService(' + ${item.id} + ')'">
+                            🗑️ Xóa
+                        </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
 </body>
 </html>
